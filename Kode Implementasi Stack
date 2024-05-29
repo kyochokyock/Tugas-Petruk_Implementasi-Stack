@@ -1,0 +1,65 @@
+//Kelompok 9
+
+//Maura Hellena (2317051105)
+
+//Muhammad Ghozi Pratama (2317051041)
+
+//Meyta Zaskiya (2357051006)
+
+
+//Maura Hellena: Mengkonversi string ke array/vector infix
+
+#include <bits/stdc++.h>
+using namespace std;
+
+bool chech(char ch, vector<char> range);
+bool checkString(string str, vector<string> range);
+vector<string> convertToInfix(string input);
+string removeWhitespace(string str);
+int checkPrecedence(string op);
+vector<string> convertToPostfix(vector<string> infix);
+double doOperation(double a, double b, string op);
+double evaluateOperation(vector<string> postfix);
+
+int main(){
+    string input;
+    getline(cin, input);
+
+    vector<string> infix = convertToInfix(removeWhitespace(input));
+    vector<string> postfix = convertToPostfix(infix);
+
+    cout << evaluateOperation(postfix) << endl;
+
+    return 0;
+}
+
+bool check(char ch, vector<char> range){
+    vector<char>::iterator it;
+    it = find(range.begin(), range.end(), str);
+    return it - range.begin() < (long int) range.size();
+}
+
+bool checkString(string str, vector<string> range){
+    vector<string>::iterator it;
+    it = find(range.begin(), range.end(), str);
+    return it - range.begin() < (long int) range.size();
+}
+
+string removeWhitespace(string str){
+    vector<char> op = {'+', '*', '/', '-', '%', '(', ')'};
+    string::iterator i = str.begin();
+    string result;
+
+    while(i != str.end()){
+        if(isdigit(*i) || check(*i, op)){
+        result.push_back(*i);
+        }
+        i++;
+    }
+    return result;
+}
+
+
+
+
+
