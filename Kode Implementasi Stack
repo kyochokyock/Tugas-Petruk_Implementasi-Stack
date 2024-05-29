@@ -141,6 +141,74 @@ double doOperation(double a, double b, string op){
     return result;
 }
 
+//Muhammad Ghozi Pratama : Fungsi conertToInfix dan checkString
+
+bool check(char ch, vector<char> range){
+    vector<char>::iterator it;
+    it = find(range.begin(), range.end(), ch);
+    return it - range.begin() < (long int)
+range size();
+}
+
+bool checkString(string str, vector<string>range){
+    vector<string>::iterator it;
+    it = find(range.begin(), range.end(), str);
+retrun it-range.begin()<(long int)
+range.size();
+}
+
+vectro<string>convertToInfix(string input){
+    vector<char>op = {'+','*','/'.'%'};
+    vector<char> kurung = {'(',')'};
+    vector<string>infix;
+    string temp;
+    string::iterator i = input.begin();
+
+while(i !=input.end(){
+    if(isdigit)(*i){
+temp.push_back(*i);
+if(!isdigit(*(i+1))){
+    infix.push_back(temo);
+    temp.clear();
+    }else if(check(*i, op) || check(*i, kurung))
+{
+
+    temp.push_back(*i);
+    infix.push_back(temp);
+    temp.clear();
+    }else if(check(*i, op) || check(*i, kurung))
+{
+    temp.push_back(*i);
+    infix.push_back(temp);
+    temp.clear();
+
+}else if(*i=='-'){
+    if(check(*(i-1), op) || *(i-1) == '(' || (i == input.begin() && *(i+1) == '(')){
+    infix.push_back("-1");
+    infix.push_back("*");
+}else if(isdigit(*(i+1))&&i == input.begin()){
+        temp.push_back('-');
+}else{
+        infix.push_back("-");
+    }
+    }
+    i++
+}
+return infix;
+}
+
+int checkPrecedence(string op){
+    int result = 0;
+    if(op == "%" || op == "*" || op=="/"){
+        result = 3;
+    }else if(op == "+" || op == "-"){
+    result = 4;
+}
+return result;
+}
+
+    
+    
 
 
 
